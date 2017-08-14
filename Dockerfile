@@ -6,15 +6,15 @@ RUN \
 
 ENV ADMIN_USER admin
 
-ENV PAYARA_PATH /opt/payara41
+ENV PAYARA_PATH /opt/payara50
 
 RUN \ 
  mkdir -p ${PAYARA_PATH}/deployments && \
  useradd -b /opt -m -s /bin/bash -d ${PAYARA_PATH} payara && echo payara:payara | chpasswd
 
 # specify Payara version to download
-ENV PAYARA_PKG https://s3-eu-west-1.amazonaws.com/payara.fish/Payara+Downloads/Payara+4.1.2.172/payara-web-4.1.2.172.zip
-ENV PAYARA_VERSION 172
+ENV PAYARA_PKG https://oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&g=fish.payara.distributions&a=payara-web&v=5.0.0.173-SNAPSHOT&p=zip
+ENV PAYARA_VERSION 5-SNAPSHOT
 
 ENV PKG_FILE_NAME payara-web-${PAYARA_VERSION}.zip
 
